@@ -1,16 +1,41 @@
 
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Blinker');
 .mainPage {
 
     height: 100vh;
-    background-image: url("../../img/daytime.png") ;
+    // background-image: url("../../img/sunset.png") ;
     background-size: cover;
     background-position: center; /* Center the image */
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+
+    p, h5, h4, .icon{
+        color: white;
+        font-family: 'Blinker';
+    }
+    
+    .description{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    p{
+        font-size: 15px;
+    }
+    
+    h5{
+        font-size: 25px;
+        font-weight: 300;
+    }
+    h4{
+        font-size: 40px;
+        font-weight: 300;
+    }
 
 }
 
@@ -20,9 +45,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-top: 30px;
 }
 
-p, h5, h4, .icon{
+.arrow{
+    font-size: 50px;
     color: white;
 }

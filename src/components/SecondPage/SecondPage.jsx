@@ -25,21 +25,24 @@ const SecondPage = (props) => {
         break;
     }
     return (
-      <div>
+      <div className={styles.horizontal}>
         <p>{weather.description}</p>
-        <FontAwesomeIcon icon={wIcon} />
+        <FontAwesomeIcon className={styles.Icon} icon={wIcon} />
       </div>
     )
   };
   const getForecastJsx = (list) => (
-    <div>
-      <p>{list.main.temp}</p>
-      <p>{list.main.feels_like}</p>
-      <div>
-        {list.weather.map(getWeatherInfoJsx)}
-      </div>
+    <div className={styles.forecastItem}>
       <p>{list.dt_txt.slice(11, 16)}</p>
-      <p>{list.main.humidity}</p>
+      <div className={styles.forecastInfo}>
+        
+        
+          {list.weather.map(getWeatherInfoJsx)}
+        
+        <p>{Math.round(list.main.temp) + " °C"}</p>
+      </div>
+
+
 
 
 
@@ -50,18 +53,58 @@ const SecondPage = (props) => {
 
 
   return (
-    <div>
-      <h2>Details</h2>
-      
-      <h4>current weather</h4>
-      <h5>{props.weather.main.temp}</h5>
-      <h5>{props.weather.main.pressure}</h5>
-      <h5>{props.weather.main.humidity}</h5>
-      <h5>{props.weather.clouds.all}</h5>
-      <h4>24h Forecast</h4>
-      {props.forecast.list.map(getForecastJsx)}
+    <div className={styles.secondPage}>
 
+      <div className={styles.currentWeather}>
+        <h2>Details</h2>
+        <p>Current Weather</p>
+        <div className={styles.currentInfoStats}>
+          <div className={styles.pair}>
+            <div className={styles.currentInfoItem}>
+              <FontAwesomeIcon className={styles.Icon} icon={"temperature-low"} />
+              <div className={styles.currentInfoItemFigure}>
+                <h6>Temperature</h6>
+                <p>{Math.round(props.weather.main.temp) + " °C"}</p>
+              </div>
+            </div>
+
+            <div className={styles.currentInfoItem}>
+              <FontAwesomeIcon className={styles.Icon}  icon={"tachometer-alt"} />
+              <div className={styles.currentInfoItemFigure}>
+                <h6>Pressure</h6>
+                <p>{(props.weather.main.pressure) / 1000 + " bar"}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.pair}>
+            <div className={styles.currentInfoItem}>
+              <FontAwesomeIcon className={styles.Icon} icon={"tint"} />
+              <div className={styles.currentInfoItemFigure}>
+                <h6>Humidity</h6>
+                <p>{props.weather.main.humidity + " %"}</p>
+              </div>
+            </div>
+
+            <div className={styles.currentInfoItem}>
+              <FontAwesomeIcon className={styles.Icon} icon={"cloud"} />
+              <div className={styles.currentInfoItemFigure}>
+                <h6>Cloud Cover</h6>
+                <p>{props.weather.clouds.all + " %"}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.forecast}>
+        <h2>Forecast</h2>
+        <p>For next 24H</p>
+        <div className={styles.forecastList}>
+        {props.forecast.list.map(getForecastJsx)}
+        </div>
+      </div>
     </div>
+
   );
 };
 

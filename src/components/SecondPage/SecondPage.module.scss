@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Blinker');
+
+.secondPage{
+    p, h5, h4, h2,h6, .icon{
+        
+        font-family: 'Blinker';
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2{
+    font-weight: 300;
+    font-size: 30px;
+    text-align: left;
+    width: 80%;
+    }
+    p{
+        color: #707070;
+    }
+    padding-top: 20px;
+    h6{
+        font-size: 15px;
+        font-weight: 300;
+    }
+}
+
+.currentWeather{
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: left;
+    width: 80%;
+}
+
+.pair{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px 10px 0px;
+}
+
+.currentInfoItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+}
+
+.currentInfoItemFigure{
+    width: 70%;
+}
+
+.currentInfoStats{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0px 40px 0px;
+}
+
+
+.forecast{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: left;
+    width: 80%;
+}
+
+.forecastItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+}
+
+.forecastInfo{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.horizontal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+
+}
+
+.forecastList{
+margin: 20px 0px 20px 0px;
+display: flex;
+flex-direction: column;
+}
+
+
+.Icon{
+    color: #707070;
+    font-size: 20px;
+}
