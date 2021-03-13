@@ -3,7 +3,7 @@ import styles from "./MainPage.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MainPage = (props) => {
-  
+
   const getWeatherJsx = (weather) => {
     let wIcon = "sun";
     switch (weather.main) {
@@ -23,23 +23,28 @@ const MainPage = (props) => {
       default:
         break;
     }
-    return(
-    <div>
-        <p>{weather.main}</p>
-        <FontAwesomeIcon icon={wIcon} />
-    </div>
+    return (
+      <div className={styles.description}>
+        <FontAwesomeIcon className={styles.icon} icon={wIcon} />
+        <h5>{weather.main}</h5>
+      </div>
     )
   };
 
   return (
-    <div>
-      
-      <p>{props.weather.name}</p>
-      <p>{props.weather.main.temp}</p>
-      <div>
-      {props.weather.weather.map(getWeatherJsx)}
+    <div className={styles.mainPage}>
+      <div className={styles.topbar}>
+        <div>
+          {props.weather.weather.map(getWeatherJsx)}
+        </div>
+        <div>
+          <h5>{props.weather.name}</h5>
+          <p>{Date(Date.now()).slice(0, 10)}</p>
+          <h4>{(Math.round(props.weather.main.temp)+ "°C")}</h4>
+        </div>
       </div>
-      <p>------------------------</p>
+
+
     </div>
   );
 };

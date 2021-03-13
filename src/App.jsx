@@ -7,6 +7,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from "./App.module.scss";
 
 const App = () => {
   library.add(fab, faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake)
@@ -38,7 +39,7 @@ const App = () => {
       method: 'GET',
       redirect: 'follow'
     };
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=London&cnt=8&appid=3bb95bedbc9f725d4f39cf19227f4aca`, requestOptions)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=London&cnt=8&units=metric&appid=3bb95bedbc9f725d4f39cf19227f4aca`, requestOptions)
       .then((response) => response.json())
       .then((forecastRes) => {
         setForecast(forecastRes)
@@ -53,7 +54,7 @@ const App = () => {
       method: 'GET',
       redirect: 'follow'
     };
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=london&appid=3bb95bedbc9f725d4f39cf19227f4aca`, requestOptions)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=3bb95bedbc9f725d4f39cf19227f4aca`, requestOptions)
       .then((response) => response.json())
       .then((weatherRes) => {
         setWeather(weatherRes)
@@ -74,7 +75,7 @@ const App = () => {
   return (
     <div className="App">
       
-      <MainPage weather={weather} />
+      <MainPage className={styles.main} weather={weather} />
       <SecondPage forecast={forecast} weather={weather} />
     </div>
   );

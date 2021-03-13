@@ -34,6 +34,7 @@ const SecondPage = (props) => {
   const getForecastJsx = (list) => (
     <div>
       <p>{list.main.temp}</p>
+      <p>{list.main.feels_like}</p>
       <div>
         {list.weather.map(getWeatherInfoJsx)}
       </div>
