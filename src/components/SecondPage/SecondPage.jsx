@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SecondPage.module.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const SecondPage = (props) => {
-  
+
 
   const getWeatherInfoJsx = (weather) => {
-    return(
-    <div>
-      <p>{weather.description}</p>
-      
-    </div>
+    let wIcon = "sun";
+    switch (weather.main) {
+      case "Rain":
+        wIcon = "cloud-showers-heavy";
+        break;
+      case "Clouds":
+        wIcon = "cloud";
+        break;
+      case "Clear":
+        wIcon = "sun";
+        break;
+      case "Snow":
+        wIcon = "snowflake";
+        break;
+
+      default:
+        break;
+    }
+    return (
+      <div>
+        <p>{weather.description}</p>
+        <FontAwesomeIcon icon={wIcon} />
+      </div>
     )
   };
   const getForecastJsx = (list) => (
@@ -18,11 +37,11 @@ const SecondPage = (props) => {
       <div>
         {list.weather.map(getWeatherInfoJsx)}
       </div>
-      <p>{list.dt_txt.slice(11, 13)}</p>
+      <p>{list.dt_txt.slice(11, 16)}</p>
       <p>{list.main.humidity}</p>
 
-      
-      
+
+
     </div>
 
   );
@@ -32,7 +51,7 @@ const SecondPage = (props) => {
   return (
     <div>
       <h2>Details</h2>
-
+      
       <h4>current weather</h4>
       <h5>{props.weather.main.temp}</h5>
       <h5>{props.weather.main.pressure}</h5>

@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+
 import React, { useState, useEffect } from 'react';
-import SecondPage from "./components/SecondPage/SecondPage"
 import './App.css';
+import SecondPage from "./components/SecondPage/SecondPage"
 import MainPage from './components/MainPage/MainPage';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const App = () => {
-  const [forecast, setForecast] = useState({ 
+  library.add(fab, faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake)
+  const [forecast, setForecast] = useState({
     list: [
-      { dt_txt:"init",  main: {temp: "0"}, weather: [ {description: "sun"}]}
+      { dt_txt: "init", main: { temp: "0" }, weather: [{ description: "sun", main:"Rain" }] }
     ],
     city: {
       name: "init"
     }
-    
+
   });
 
   const [weather, setWeather] = useState({
-    name: "init", 
+    name: "init",
     main: [
-      { humidity: "0", temp:"0", max_temp:"0", min_temp:"0" }
+      { humidity: "0", temp: "0", max_temp: "0", min_temp: "0" }
     ],
     weather: [
       { main: "sun" }
@@ -63,13 +68,14 @@ const App = () => {
     getForecast()
     getWeather()
     console.log(forecast.list)
-    
+
 
   }, []);
   return (
     <div className="App">
-      <MainPage weather={weather}/>
-      <SecondPage forecast={forecast} weather={weather}/>
+      
+      <MainPage weather={weather} />
+      <SecondPage forecast={forecast} weather={weather} />
     </div>
   );
 }
