@@ -20,10 +20,24 @@ const MainPage = (props) => {
       console.log("op")
     }
     console.log(TOD)
-    // setTOD("\"https://i.imgur.com/Hd9QIYF.png\"");
+    // setTOD("\"https://i.imgur.com/6nen5df.png\"");
     
     
   }
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function showPosition(position) {
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+  }
+  
   const getWeatherJsx = (weather) => {
     let wIcon = "sun";
     switch (weather.main) {
@@ -55,7 +69,7 @@ const MainPage = (props) => {
 
   useEffect(() => {
     changeBackground();
- 
+    getLocation();
 
 
   }, []);
