@@ -14,12 +14,12 @@
     font-size: 30px;
     text-align: left;
     width: 80%;
-    margin-top: 10px;
+   
     }
     p{
         color: #707070;
     }
-    padding-top: 20px;
+    
     h6{
         font-size: 15px;
         font-weight: 300;
@@ -27,15 +27,25 @@
     h5{
         font-weight: 300;
     }
+    h4{
+        color: white;
+        font-weight: 300;
+        width: 100%;
+        text-align: left;
+        margin: 20px 0px 0px 0px;
+       
+    }
 }
 
 .currentWeather{
 
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    
     align-items: left;
     width: 80%;
+    max-width: 800px;
+    margin: 40px 0px 20px 0px;
 }
 
 .pair{
@@ -44,6 +54,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 10px 0px 10px 0px;
+    
 }
 
 .currentInfoItem{
@@ -61,16 +72,26 @@
 .currentInfoStats{
     display: flex;
     flex-direction: column;
-    margin: 40px 0px 40px 0px;
+    margin: 20px 0px 20px 0px;
+    
 }
 
 
 .forecast{
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 20px 0px 40px 0px;
     align-items: left;
     width: 80%;
+    max-width: 800px;
+}
+
+.forecastList{
+    margin: 20px 0px 20px 0px;
+}
+
+.forecastContainer{
+    
 }
 
 .forecastItem{
@@ -78,11 +99,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 5px 0px 5px 0px;
+    margin: 10px 0px 10px 0px;
+    
 }
 
 .forecastInfo{
-    width: 70%;
+    width: 75%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -97,7 +119,7 @@
 }
 
 .forecastList{
-margin: 20px 0px 20px 0px;
+
 display: flex;
 flex-direction: column;
 }
@@ -118,8 +140,11 @@ flex-direction: column;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    
     align-items: center;
+    max-width: 400px;
+    margin: 20px 0px 20px 0px;
 }
 
 .pin{
@@ -136,9 +161,64 @@ flex-direction: column;
     
     h2{
         color: white;
+        width: 100%;
     }
 }
 .settingsContainer{
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 20px 0px 20px 0px;
+    
 }
 
+
+.darkModeToggle{
+    
+    
+    height: 45px;
+    width: 100%;
+    color: #848fd9;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+    
+}
+
+.phon{
+    color: #848fd9;
+}
+
+.bgButtonContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px 20px 0px;
+    
+    
+}
+
+.bgButton{
+
+    height: 45px;
+    width: 20%;
+    color: #848fd9;
+    font-size: 15px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}

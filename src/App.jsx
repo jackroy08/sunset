@@ -5,13 +5,14 @@ import SecondPage from "./components/SecondPage/SecondPage"
 import MainPage from './components/MainPage/MainPage';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faMapPin, faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake, faTemperatureLow, faTachometerAlt, faTint, faCaretUp } from '@fortawesome/free-solid-svg-icons'
+import { faMapPin, faMobileAlt, faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake, faTemperatureLow, faTachometerAlt, faTint, faCaretUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from "./App.module.scss";
 
 const App = () => {
-  library.add(fab, faMapPin,  faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake, faTemperatureLow, faTachometerAlt, faTint, faCaretUp)
+  library.add(fab, faMobileAlt, faMapPin,  faCheckSquare, faCoffee, faSun, faCloud, faCloudShowersHeavy, faSnowflake, faTemperatureLow, faTachometerAlt, faTint, faCaretUp)
   const [city, setCity] = useState({})
+  const [tod1, setTod1] = useState("default")
   const [forecast, setForecast] = useState({
     list: [
       { dt_txt: "init", main: { temp: "0" }, weather: [{ description: "sun", main: "Rain" }] }
@@ -21,6 +22,8 @@ const App = () => {
     }
 
   });
+
+
 
 
   const [weather, setWeather] = useState({
@@ -35,6 +38,11 @@ const App = () => {
       { all: "100" }
     ],
   });
+  
+  const changeTod = (oop) => {
+    setTod1(oop);
+    console.log(tod1)
+  }
 
   function getLocation() {
     if (navigator.geolocation) {
@@ -94,8 +102,8 @@ const App = () => {
   return (
     <div className="App">
 
-      <MainPage className={styles.main} weather={weather} />
-      <SecondPage  getClick={getLocation} forecast={forecast} weather={weather} />
+      <MainPage className={styles.main} tod1={tod1} weather={weather} />
+      <SecondPage changeBG={changeTod} getClick={getLocation} forecast={forecast} weather={weather} />
     </div>
   );
 }
